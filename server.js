@@ -43,6 +43,7 @@ app.use(express.static('public'));
 /* GET Requests */
 /* ------------ */
 
+// app notes api
 app.get('/api/notes', (request, response) => {
 
    //  console.log('GET request from: ', __dirname);
@@ -52,6 +53,7 @@ app.get('/api/notes', (request, response) => {
 
 });
 
+// app notes page
 app.get('/notes', (request, response) => {
 
     // console.log('GET request from: ', __dirname);
@@ -61,9 +63,20 @@ app.get('/notes', (request, response) => {
 
 });
 
+// app root directory
+app.get('/', (request, response) => {
+
+    response.sendFile(path.join(__dirname, 'public/index.html'), err => {
+        if (err) throw err;
+    });
+
+});
+
 /* --------------*/
 /* POST Requests */
 /* ------------- */
+
+// app notes api
 app.post('/api/notes', (request, response) => {
 
     const newNoteData = request.body;
