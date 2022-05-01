@@ -52,8 +52,14 @@ const deleteNote = id =>
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
+  console.log('Active note: ', activeNote);
 
-  if (activeNote.id) {
+  // !important
+  // ? changed if-condition from 'activeNote.id' to 'activeNote.title'
+  // This is because we aren't using any sort of 'id' field in the note data, nor do we need to since the data-structure is an array.
+  // Therefore, we only need to check if the object contains the data we need, or simply check if the table is empty (since navigating to the
+  // new note section sets 'activeNote' to an empty object).
+  if (activeNote.title) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
