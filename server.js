@@ -66,7 +66,7 @@ app.get('/notes', (request, response) => {
 // app root directory
 app.get('/', (request, response) => {
 
-    response.sendFile(path.join(__dirname, 'public/index.html'), err => {
+    response.sendFile(path.join(__dirname, 'index.html'), err => {
         if (err) throw err;
     });
 
