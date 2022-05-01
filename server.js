@@ -31,7 +31,7 @@ const path = require('path');
 /* ----------------------- */
 /* Internal Program States */
 /* ----------------------- */
-const PORT = 5001;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 // application staging
